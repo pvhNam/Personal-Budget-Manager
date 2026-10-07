@@ -1,0 +1,18 @@
+<resources>
+    <string name="account_subtitle">Cá nhân hóa sổ thu chi của bạn</string>
+    <string name="account_profile_note">Sổ tay tài chính cá nhân</string>
+    <string name="account_edit">Chỉnh sửa hồ sơ</string>
+    <string name="account_budget">Ngân sách mỗi tháng</string>
+    <string name="account_management">Quản lý tài chính</string>
+    <string name="account_expenses">Danh mục chi tiêu</string>
+    <string name="account_incomes">Danh mục thu nhập</string>
+    <string name="account_recurring">Giao dịch định kỳ</string>
+    <string name="account_records">Dữ liệu của bạn</string>
+    <string name="account_local">Lưu trên thiết bị này · Chạm số giao dịch để xem lịch sử</string>
+    <string name="category_expenses">Chi tiêu</string>
+    <string name="category_incomes">Thu nhập</string>
+    <style name="GlassDialogMotion">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+</resources>

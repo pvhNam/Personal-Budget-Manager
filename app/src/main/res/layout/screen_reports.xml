@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Screen">
+    <TextView style="@style/Title" android:text="@string/glass_24" />
+    <TextView style="@style/Subtitle" android:text="@string/glass_25" />
+    <Button style="@style/SecondaryButton" android:id="@+id/reports_back" android:text="@string/glass_26" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical">
+        <Button style="@style/SecondaryButton" android:id="@+id/previous" android:text="@string/glass_7" android:layout_width="48dp" android:contentDescription="@string/glass_8" />
+        <TextView style="@style/Body" android:text="@string/glass_9" android:id="@+id/period" android:layout_width="0dp" android:layout_weight="1" android:gravity="center" android:textStyle="bold" />
+        <Button style="@style/SecondaryButton" android:id="@+id/next" android:text="@string/glass_10" android:layout_width="48dp" android:contentDescription="@string/glass_11" />
+    </LinearLayout>
+    <LinearLayout style="@style/Card">
+        <TextView style="@style/Body" android:text="@string/glass_27" android:textSize="11sp" />
+        <TextView style="@style/Title" android:text="@string/glass_13" android:id="@+id/year_expense" android:minHeight="48dp" />
+        <TextView style="@style/Body" android:text="@string/glass_28" android:id="@+id/year_income" android:minHeight="48dp" />
+        <TextView style="@style/Body" android:text="@string/glass_29" android:id="@+id/year_balance" android:minHeight="48dp" />
+        <TextView style="@style/Subtitle" android:text="@string/glass_30" android:id="@+id/year_change" />
+    </LinearLayout>
+    <LinearLayout style="@style/Card">
+        <TextView style="@style/Section" android:text="@string/glass_31" />
+        <TextView style="@style/Subtitle" android:text="@string/glass_18" android:id="@+id/year_chart_legend" />
+        <LinearLayout android:id="@+id/year_chart" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+    </LinearLayout>
+    <LinearLayout style="@style/Card">
+        <TextView style="@style/Section" android:text="@string/glass_32" />
+        <TextView style="@style/Body" android:text="@string/glass_33" />
+        <Spinner android:id="@+id/compare_a" android:layout_width="match_parent" android:layout_height="48dp" android:entries="@array/months" />
+        <TextView style="@style/Body" android:text="@string/glass_34" />
+        <Spinner android:id="@+id/compare_b" android:layout_width="match_parent" android:layout_height="48dp" android:entries="@array/months" />
+        <TextView style="@style/Body" android:text="@string/glass_35" android:id="@+id/comparison" />
+    </LinearLayout>
+</LinearLayout>

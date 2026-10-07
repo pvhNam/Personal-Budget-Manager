@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="category_chart_title">Tháng này chi cho gì?</string>
+    <string name="category_chart_hint">Chạm cột để xem số tiền, tỷ lệ và giao dịch.</string>
+    <string name="trend_toggle">Dòng tiền 6 tháng ↓</string>
+    <string name="quick_income">＋ Thêm thu</string>
+    <string name="quick_expense">＋ Thêm chi</string>
+    <string name="money_hint">Ví dụ: 30 000</string>
+    <string name="search_action">Tìm</string>
+    <string name="transactions_hint">Theo từng ngày · chạm giao dịch để chỉnh sửa.</string>
+</resources>

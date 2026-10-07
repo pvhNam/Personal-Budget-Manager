@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" style="@style/Screen" tools:context=".MainActivity">
+    <TextView style="@style/Title" android:text="@string/ui_57" />
+    <TextView style="@style/Subtitle" android:text="@string/ui_58" />
+    <LinearLayout style="@style/Card">
+        <TextView style="@style/Body" android:text="@string/ui_51" />
+        <TextView style="@style/Title" android:text="@string/ui_52" android:id="@+id/saved_total" />
+        <TextView style="@style/Subtitle" android:text="@string/ui_53" android:id="@+id/goal_count" />
+    </LinearLayout>
+    <Button style="@style/PrimaryButton" android:id="@+id/add_goal" android:text="@string/ui_54" />
+    <Button style="@style/SecondaryButton" android:id="@+id/open_savings_history" android:text="@string/savings_history" />
+    <LinearLayout android:id="@+id/goal_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <LinearLayout style="@style/Card">
+            <TextView style="@style/Section" android:text="@string/ui_55" />
+            <TextView style="@style/Body" android:text="@string/ui_56" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

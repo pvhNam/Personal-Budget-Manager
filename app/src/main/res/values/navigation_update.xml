@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="add_transaction">Thêm giao dịch</string>
+    <string name="transactions_title">Giao dịch</string>
+    <string name="transactions_subtitle">Các khoản thu và chi của bạn. Chạm giao dịch để chỉnh sửa.</string>
+    <string name="all_months">Hiển thị tất cả các tháng</string>
+    <string name="open_reports">Báo cáo thu chi</string>
+    <string name="savings_history">Lịch sử tiết kiệm</string>
+    <string name="history_subtitle">Theo dõi từng lần góp và rút tiền. Khoản phân bổ tiết kiệm không tạo thêm thu hoặc chi.</string>
+    <string name="back_savings">‹ Quay lại tiết kiệm</string>
+</resources>

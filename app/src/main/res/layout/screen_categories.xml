@@ -1,0 +1,13 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" style="@style/Screen" tools:context=".MainActivity">
+    <TextView style="@style/Title" android:text="@string/categories_title"/>
+    <TextView style="@style/Subtitle" android:id="@+id/categories_description" android:text="@string/categories_description"/>
+    <Button style="@style/SecondaryButton" android:id="@+id/categories_back" android:text="@string/categories_back"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginVertical="8dp">
+        <Button style="@style/SecondaryButton" android:id="@+id/category_expenses" android:layout_width="0dp" android:layout_weight="1" android:layout_marginEnd="5dp" android:text="@string/category_expenses"/>
+        <Button style="@style/SecondaryButton" android:id="@+id/category_incomes" android:layout_width="0dp" android:layout_weight="1" android:layout_marginStart="5dp" android:text="@string/category_incomes"/>
+    </LinearLayout>
+    <Button style="@style/PrimaryButton" android:id="@+id/category_add" android:text="@string/category_add"/>
+    <LinearLayout android:id="@+id/category_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView style="@style/Body" android:text="@string/categories_preview"/>
+    </LinearLayout>
+</LinearLayout>

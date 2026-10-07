@@ -1,0 +1,4 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Screen">
+    <TextView style="@style/Body" android:text="@string/category_name" android:labelFor="@id/category_name"/>
+    <EditText android:id="@+id/category_name" android:layout_width="match_parent" android:layout_height="56dp" android:hint="@string/category_hint" android:inputType="textCapSentences" android:maxLength="40" android:singleLine="true"/>
+</LinearLayout>

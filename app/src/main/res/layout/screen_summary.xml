@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Screen" android:padding="20dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:baselineAligned="false">
+        <TextView style="@style/SummaryControl" android:id="@+id/summary_back" android:layout_width="48dp" android:layout_height="48dp" android:text="@string/glass_7" android:textSize="30sp" android:contentDescription="@string/summary_back"/>
+        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="4dp">
+            <TextView style="@style/Title" android:text="@string/summary_title" android:textColor="#F3F6FF" android:layout_marginBottom="2dp"/>
+            <TextView style="@style/Subtitle" android:text="@string/summary_subtitle" android:textColor="#93A3BE" android:layout_marginBottom="0dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginTop="16dp" android:background="@drawable/bg_summary_card" android:baselineAligned="false">
+        <TextView style="@style/SummaryControl" android:id="@+id/summary_previous" android:layout_width="48dp" android:text="@string/glass_7" android:textSize="23sp" android:contentDescription="@string/summary_previous"/>
+        <TextView style="@style/SummaryControl" android:id="@+id/summary_period" android:layout_width="0dp" android:layout_weight="1" android:textStyle="bold" android:contentDescription="@string/summary_month"/>
+        <TextView style="@style/SummaryControl" android:id="@+id/summary_next" android:layout_width="48dp" android:text="@string/glass_10" android:textSize="23sp" android:contentDescription="@string/summary_next"/>
+    </LinearLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="290dp" android:layout_marginTop="14dp">
+        <vn.sotay.thuchi.DonutChart android:id="@+id/summary_chart" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <LinearLayout android:layout_width="200dp" android:layout_height="wrap_content" android:layout_gravity="center" android:orientation="vertical" android:gravity="center">
+            <TextView style="@style/Subtitle" android:id="@+id/summary_type_label" android:textColor="#A9B8D0" android:gravity="center" android:layout_marginBottom="8dp"/>
+            <TextView style="@style/Title" android:id="@+id/summary_total" android:layout_height="44dp" android:textColor="#F4F7FF" android:gravity="center" android:maxLines="1" android:autoSizeTextType="uniform" android:autoSizeMinTextSize="13sp" android:autoSizeMaxTextSize="29sp" android:autoSizeStepGranularity="1sp" android:layout_marginBottom="6dp"/>
+            <TextView style="@style/Body" android:id="@+id/summary_comparison" android:textColor="#67D8C4" android:textSize="12sp" android:gravity="center" android:layout_marginBottom="0dp"/>
+        </LinearLayout>
+    </FrameLayout>
+    <TextView style="@style/Subtitle" android:text="@string/summary_hint" android:textColor="#93A3BE" android:textSize="11sp" android:gravity="center" android:layout_marginBottom="14dp"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="4dp" android:background="@drawable/bg_summary_card" android:baselineAligned="false">
+        <TextView style="@style/SummaryControl" android:id="@+id/summary_expenses" android:layout_width="0dp" android:layout_weight="1" android:text="@string/summary_expenses"/>
+        <TextView style="@style/SummaryControl" android:id="@+id/summary_income" android:layout_width="0dp" android:layout_weight="1" android:text="@string/summary_income"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginTop="22dp" android:layout_marginBottom="12dp" android:baselineAligned="false">
+        <TextView style="@style/Body" android:text="@string/summary_categories" android:textStyle="bold" android:textColor="#F3F6FF" android:layout_width="0dp" android:layout_weight="1" android:layout_marginBottom="0dp"/>
+        <TextView style="@style/Body" android:id="@+id/summary_count" android:textColor="#93A3BE" android:textSize="12sp" android:layout_width="wrap_content" android:layout_marginBottom="0dp"/>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/summary_categories" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="6dp" android:background="@drawable/bg_summary_card"/>
+</LinearLayout>

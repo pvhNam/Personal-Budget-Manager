@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" style="@style/Screen" tools:context=".MainActivity" android:paddingTop="8dp">
+    <TextView style="@style/Body" android:text="@string/ui_80" />
+    <Spinner android:id="@+id/transaction_type" android:layout_width="match_parent" android:layout_height="48dp" android:entries="@array/transaction_types" />
+    <TextView style="@style/Body" android:text="@string/ui_81" />
+    <EditText android:id="@+id/transaction_amount" android:layout_width="match_parent" android:layout_height="56dp" android:inputType="number" android:hint="@string/money_hint" android:textSize="24sp" android:singleLine="true" />
+    <TextView style="@style/Body" android:text="@string/ui_83" />
+    <EditText android:id="@+id/transaction_note" android:layout_width="match_parent" android:layout_height="56dp" android:inputType="textCapSentences" android:maxLength="300" android:hint="@string/ui_84" />
+    <TextView style="@style/Body" android:text="@string/ui_85" />
+    <Spinner android:id="@+id/transaction_category" android:layout_width="match_parent" android:layout_height="48dp" android:entries="@array/categories" />
+    <TextView style="@style/Body" android:text="@string/ui_86" />
+    <Button style="@style/SecondaryButton" android:id="@+id/transaction_date" android:text="@string/ui_87" />
+</LinearLayout>

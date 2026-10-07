@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Screen">
+    <TextView style="@style/Title" android:id="@+id/history_title" android:text="@string/savings_history" />
+    <TextView style="@style/Subtitle" android:id="@+id/history_subtitle" android:text="@string/history_subtitle" />
+    <Button style="@style/SecondaryButton" android:id="@+id/history_back" android:text="@string/back_savings" />
+    <LinearLayout android:id="@+id/history_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="categories_title">Quản lý danh mục</string>
+    <string name="categories_description">Tạo và sắp xếp các nhóm chi tiêu của bạn. Đổi tên sẽ cập nhật cả giao dịch và lịch định kỳ.</string>
+    <string name="categories_back">‹ Quay lại tài khoản</string>
+    <string name="category_add">＋ Thêm danh mục</string>
+    <string name="category_name">Tên danh mục</string>
+    <string name="category_hint">Ví dụ: Thú cưng</string>
+    <string name="categories_preview">Ăn uống · Di chuyển · Mua sắm</string>
+    <string name="manage_categories">Quản lý danh mục chi tiêu</string>
+</resources>

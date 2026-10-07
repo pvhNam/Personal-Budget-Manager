@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Screen">
+    <TextView style="@style/Title" android:id="@+id/transactions_title" android:text="@string/transactions_title" />
+    <TextView style="@style/Subtitle" android:id="@+id/transactions_subtitle" android:text="@string/transactions_hint" android:layout_marginBottom="10dp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:id="@+id/transaction_period">
+        <Button style="@style/SecondaryButton" android:layout_width="48dp" android:id="@+id/previous" android:text="@string/glass_7" android:contentDescription="@string/ui_11" />
+        <TextView style="@style/Body" android:text="@string/ui_12" android:id="@+id/period" android:layout_width="0dp" android:layout_weight="1" android:gravity="center" android:textStyle="bold" />
+        <Button style="@style/SecondaryButton" android:layout_width="48dp" android:id="@+id/next" android:text="@string/glass_10" android:contentDescription="@string/ui_13" />
+    </LinearLayout>
+    <LinearLayout style="@style/Card" android:padding="12dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:baselineAligned="false">
+            <EditText android:id="@+id/search" android:layout_width="0dp" android:layout_height="48dp" android:hint="@string/ui_9" android:inputType="text" android:singleLine="true" android:layout_weight="1" android:textSize="14sp" android:importantForAutofill="no" />
+            <Button style="@style/SecondaryButton" android:id="@+id/search_button" android:text="@string/search_action" android:layout_width="64dp" android:layout_marginStart="8dp" />
+        </LinearLayout>
+        <Spinner android:id="@+id/filter" android:layout_width="match_parent" android:layout_height="48dp" android:entries="@array/transaction_filters" />
+        <CheckBox android:id="@+id/all_months" android:layout_width="match_parent" android:layout_height="48dp" android:text="@string/all_months" android:checked="true" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/transactions" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView style="@style/Body" android:text="@string/ui_20" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" style="@style/Screen" tools:context=".MainActivity">
+    
+    
+    <TextView style="@style/Title" android:text="@string/ui_78"/>
+    <TextView style="@style/Subtitle" android:text="@string/ui_79"/>
+    <Button style="@style/SecondaryButton" android:id="@+id/back_home" android:text="@string/ui_73"/>
+    <LinearLayout style="@style/Card">
+        <TextView style="@style/Section" android:text="@string/ui_74"/>
+        <TextView style="@style/Body" android:text="@string/ui_75"/>
+    </LinearLayout>
+    <Button style="@style/PrimaryButton" android:id="@+id/add_recurring" android:text="@string/ui_76"/>
+    <LinearLayout android:id="@+id/recurring_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView style="@style/Body" android:text="@string/ui_77"/>
+    </LinearLayout>
+    
+    
+</LinearLayout>

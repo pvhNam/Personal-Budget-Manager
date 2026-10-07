@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_greeting">Xin chào,</string>
+    <string name="avatar_default_name">Bạn</string>
+    <string name="avatar_accessibility">Ảnh đại diện của %1$s. Nhấn để thay đổi</string>
+    <string name="avatar_title">Ảnh đại diện</string>
+    <string name="avatar_choose">Chọn ảnh từ điện thoại</string>
+    <string name="avatar_remove">Xóa ảnh đại diện</string>
+    <string name="avatar_cancel">Hủy</string>
+    <string name="avatar_change">Thay ảnh</string>
+    <string name="avatar_error">Không đọc được ảnh này. Ảnh đại diện hiện tại vẫn được giữ lại.</string>
+    <string name="avatar_picker_unavailable">Không mở được trình chọn ảnh trên điện thoại.</string>
+</resources>

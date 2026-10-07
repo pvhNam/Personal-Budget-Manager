@@ -1,0 +1,25 @@
+<resources>
+    <string name="summary_title">Summary</string>
+    <string name="summary_open">Summary · Tổng quan tháng</string>
+    <string name="summary_subtitle">Bức tranh thu chi của bạn</string>
+    <string name="summary_back">Quay lại</string>
+    <string name="summary_previous">Tháng trước</string>
+    <string name="summary_next">Tháng sau</string>
+    <string name="summary_month">Chọn tháng</string>
+    <string name="summary_expenses">Chi tiêu</string>
+    <string name="summary_income">Thu nhập</string>
+    <string name="summary_hint">Chạm vào vòng tròn hoặc danh mục để xem chi tiết</string>
+    <string name="summary_categories">Theo danh mục</string>
+    <string name="summary_all_categories">Tất cả danh mục</string>
+    <style name="SummaryControl" parent="Body">
+        <item name="android:textColor">#DBE4F4</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:padding">8dp</item>
+    </style>
+</resources>
