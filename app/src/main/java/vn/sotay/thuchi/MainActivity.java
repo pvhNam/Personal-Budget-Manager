@@ -18,7 +18,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class MainActivity extends Activity {
-    static final int GREEN=0xff247c83, INK=0xff23384c, MUTED=0xff586c7d, BG=0xffedf4f7, RED=0xffb25958;
+    static final int GREEN=0xff67d8c4, INK=0xfff3f6ff, MUTED=0xffa9b8d0, BG=0xff0b1323, RED=0xfff7959f;
     static final DateTimeFormatter DATE=DateTimeFormatter.ofPattern("dd/MM/yyyy");
     Store store; SharedPreferences prefs; ViewGroup shell; LinearLayout body,nav; int tab=0; String page="",filter="Tất cả",query="";
     boolean allTransactions=true,trendExpanded=false,categoryIncome=false;
@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
         avatarController=new AvatarController(this,this::render,this::styleDialog);
         prefs.edit().remove("endpoint").remove("packages").apply();
         if(state!=null){summaryIncome=state.getBoolean("summaryIncome");summaryMonth=YearMonth.parse(state.getString("summaryMonth",YearMonth.now().toString()));categoryIncome=state.getBoolean("categoryIncome");allTransactions=state.getBoolean("allTransactions",true);tab=state.getInt("tab");page=state.getString("page","");month=YearMonth.parse(state.getString("month",YearMonth.now().toString()));reportYear=state.getInt("year",reportYear);}
+        if(page.equals("summary")){page="";tab=0;}
         if(Build.VERSION.SDK_INT>=33)getOnBackInvokedDispatcher().registerOnBackInvokedCallback(android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT,this::navigateBack);
         render();
     }
@@ -44,7 +45,7 @@ public class MainActivity extends Activity {
         avatarController.handleActivityResult(requestCode,resultCode,data);
     }
     String displayName(){String name=prefs.getString("name","Người dùng").trim();return name.isEmpty()?"Người dùng":name;}
-    void navigateBack(){if(!page.isEmpty()){page="";render();}else if(tab!=0){tab=0;render();}else finish();}
+    void navigateBack(){if(page.equals("savings_history")){page="savings";render();}else if(!page.isEmpty()){page="";render();}else if(tab!=0){tab=0;render();}else finish();}
     // API 33+ uses the native OnBackInvokedDispatcher registered in onCreate.
     @android.annotation.SuppressLint("GestureBackNavigation")
     @Override public void onBackPressed(){navigateBack();}
@@ -89,29 +90,27 @@ public class MainActivity extends Activity {
         applyGlass(panel);
         findViewById(R.id.nav_add).setOnClickListener(v -> editTransaction(null,false));
         }
-        boolean summary=page.equals("summary");
-        View scene=findViewById(R.id.scene_root);scene.setBackgroundResource(summary?R.drawable.bg_summary_scene:android.R.color.transparent);
-        if(!summary)scene.setBackgroundColor(BG);
-        findViewById(R.id.glass_backdrop).setVisibility(summary?View.GONE:View.VISIBLE);
+        View scene=findViewById(R.id.scene_root);scene.setBackgroundResource(R.drawable.bg_summary_scene);
+        findViewById(R.id.glass_backdrop).setVisibility(View.VISIBLE);
         View decor=getWindow().getDecorView();int flags=decor.getSystemUiVisibility();
         int lightBars=View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
-        decor.setSystemUiVisibility(summary?flags&~lightBars:flags|lightBars);
+        decor.setSystemUiVisibility(flags&~lightBars);
         FrameLayout host = findViewById(R.id.screen_host);
         if(body!=null)body.animate().cancel();
         host.removeAllViews();
-        int layout = page.equals("summary") ? R.layout.screen_summary : page.equals("reports") ? R.layout.screen_reports : page.equals("savings_history") ? R.layout.screen_savings_history : page.equals("categories") ? R.layout.screen_categories : page.equals("recurring") ? R.layout.screen_recurring
-                : tab == 0 ? R.layout.screen_home : tab == 1 ? R.layout.screen_transactions
-                : tab == 2 ? R.layout.screen_savings : R.layout.screen_account;
+        int layout = page.equals("savings") ? R.layout.screen_savings : page.equals("reports") ? R.layout.screen_reports : page.equals("savings_history") ? R.layout.screen_savings_history : page.equals("categories") ? R.layout.screen_categories : page.equals("recurring") ? R.layout.screen_recurring
+                : tab == 0 ? R.layout.screen_summary : tab == 1 ? R.layout.screen_transactions
+                : tab == 2 ? R.layout.screen_home : R.layout.screen_account;
         body = (LinearLayout) getLayoutInflater().inflate(layout, host, false);
         host.addView(body);
-        if (page.equals("summary")) SummaryPage.bind(this);
+        if (page.equals("savings")) savings();
         else if (page.equals("reports")) reports();
         else if (page.equals("savings_history")) savingsHistory();
         else if (page.equals("categories")) categoriesScreen();
         else if (page.equals("recurring")) recurring();
-        else if (tab == 0) home();
+        else if (tab == 0) SummaryPage.bind(this);
         else if (tab == 1) transactionsScreen();
-        else if (tab == 2) savings();
+        else if (tab == 2) overview();
         else account();
         applyGlass(body);
         MenuBlur blur=findViewById(R.id.menu_blur);
@@ -119,17 +118,17 @@ public class MainActivity extends Activity {
         renderedRoute=route;
         blur.post(blur::refresh);
         if(changed)Motion.enter(body,blur::refresh);
-        int[] ids = {R.id.nav_home, R.id.nav_transactions, R.id.nav_savings, R.id.nav_account};
+        int[] ids = {R.id.nav_home, R.id.nav_transactions, R.id.nav_summary, R.id.nav_account};
         for (int i = 0; i < ids.length; i++) {
             final int selected = i;
             TextView item = findViewById(ids[i]);
-            int color=summary?(tab==i?0xff8ce2d2:0xffd0dbee):(tab==i?GREEN:MUTED);
+            int color=tab==i?GREEN:MUTED;
             item.setTextColor(color);
             item.setSelected(tab == i);
             item.setCompoundDrawableTintList(android.content.res.ColorStateList.valueOf(color));
             item.setBackground(bg(tab==i?0x3033b8ad:Color.TRANSPARENT,18));
             Motion.press(item);
-            item.setOnClickListener(v -> { tab = selected; page = ""; render(); });
+            item.setOnClickListener(v -> selectTab(selected));
         }
     }
 
@@ -173,7 +172,7 @@ public class MainActivity extends Activity {
         HorizontalScrollView scroll=new HorizontalScrollView(this);scroll.setHorizontalScrollBarEnabled(true);
         LinearLayout columns=row();columns.setGravity(Gravity.BOTTOM);
         int width=Math.max(dp(76),(getResources().getDisplayMetrics().widthPixels-dp(64))/Math.min(4,sorted.size()));
-        int[] colors={GREEN,0xff7170a8,0xffb4785f,0xff568b71,0xff5478a7};int index=0;
+        int[] colors={GREEN,0xffb3a6ff,0xffffb398,0xff91caa4,0xff92baff};int index=0;
         for(Map.Entry<String,Long> entry:sorted) {
             String category=entry.getKey();long amount=entry.getValue();String share=percentage(amount,expense);
             LinearLayout group=col();group.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -207,10 +206,12 @@ public class MainActivity extends Activity {
         content.addView(entries);return showInfo(category,content);
     }
 
-    void openSummary(){summaryMonth=month;open("summary");}
+    void selectTab(int selected){
+        tab=selected;page="";render();
+    }
 
-    void home() {
-        click(R.id.open_summary,this::openSummary);
+    void overview() {
+        click(R.id.open_savings,()->open("savings"));
         label(R.id.home_name,displayName());
         avatarController.bind(body.findViewById(R.id.home_avatar),displayName());
         label(R.id.period, "Tháng " + month.getMonthValue() + " / " + month.getYear());
@@ -299,7 +300,7 @@ public class MainActivity extends Activity {
     void progress(LinearLayout l,long value,long total){ProgressBar p=new ProgressBar(this,null,android.R.attr.progressBarStyleHorizontal);p.setMax(1000);p.setProgress(total<=0?0:(int)Math.min(1000,(double)value/total*1000));p.setProgressTintList(android.content.res.ColorStateList.valueOf(value>total?RED:GREEN));LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,dp(8));lp.bottomMargin=dp(10);l.addView(p,lp);}
     void empty(String title,String detail){LinearLayout c=card(body);addText(c,title,16,INK,true);addText(c,detail,13,MUTED,false);}
     void transactionRow(LinearLayout parent,ContentValues v) {
-        View divider=new View(this);divider.setBackgroundColor(0x1439586c);parent.addView(divider,new LinearLayout.LayoutParams(-1,dp(1)));
+        View divider=new View(this);divider.setBackgroundColor(0x6634435f);parent.addView(divider,new LinearLayout.LayoutParams(-1,dp(1)));
         LinearLayout entry=col();entry.setPadding(0,dp(12),0,dp(12));entry.setMinimumHeight(dp(64));
         entry.setTag("tx:"+num(v,"id"));boolean income=num(v,"income")==1;
         addText(entry,str(v,"note"),15,INK,true);
@@ -422,6 +423,7 @@ public class MainActivity extends Activity {
         return dialog("Lịch hàng tháng",f,"Lưu lịch",()->{long a=Finance.money(amount.getText().toString());String n=required(note,"tên khoản");LocalDate d=(LocalDate)due.getTag();if(d.isBefore(LocalDate.now()))throw new IllegalArgumentException("Chọn hôm nay hoặc ngày trong tương lai.");ContentValues c=new ContentValues();if(v!=null)c.put("id",num(v,"id"));c.put("amount",a);c.put("note",n);c.put("income",type.getSelectedItemPosition());c.put("category",cat.getSelectedItem().toString());c.put("due",d.toString());c.put("anchor",v!=null&&d.toString().equals(str(v,"due"))?num(v,"anchor"):d.getDayOfMonth());store.save("recurring",c);store.processRecurring();},v==null?null:()->store.delete("recurring",num(v,"id")));
     }
     void savings() {
+        click(R.id.savings_back,this::navigateBack);
         click(R.id.open_savings_history,()->open("savings_history"));
         click(R.id.add_goal, () -> editGoal(null));
         List<ContentValues> goals = store.rows("goals","deadline ASC");
@@ -445,7 +447,7 @@ public class MainActivity extends Activity {
     void editGoal(ContentValues v){LinearLayout f=form();EditText name=field(f,"Tên mục tiêu",v==null?"":str(v,"name"),false);EditText target=field(f,"Số tiền mục tiêu (VNĐ)",v==null?"":str(v,"target"),true);Button end=date(f,"Ngày dự kiến hoàn thành",v==null?LocalDate.now().plusMonths(6):LocalDate.parse(str(v,"deadline")));dialog("Mục tiêu tiết kiệm",f,"Lưu",()->{String n=required(name,"tên mục tiêu");long t=Finance.money(target.getText().toString());long s=v==null?0:num(v,"saved");if(t<s)throw new IllegalArgumentException("Mục tiêu không được thấp hơn số tiền đã góp.");LocalDate d=(LocalDate)end.getTag();if(d.isBefore(LocalDate.now()))throw new IllegalArgumentException("Ngày hoàn thành phải từ hôm nay.");ContentValues c=new ContentValues();if(v!=null)c.put("id",num(v,"id"));c.put("name",n);c.put("target",t);c.put("saved",s);c.put("deadline",d.toString());store.save("goals",c);},v==null?null:()->store.delete("goals",num(v,"id")));}
     void contribute(ContentValues v){LinearLayout f=form();EditText amount=field(f,"Số tiền (VNĐ)","",true);Spinner mode=spinner(f,"Thao tác",new String[]{"Góp thêm","Rút khỏi mục tiêu"},"Góp thêm");addText(f,"Đây là phân bổ tiền vào mục tiêu, không tạo khoản chi hoặc khoản thu mới.",13,MUTED,false);dialog("Cập nhật tiết kiệm",f,"Xác nhận",()->{long a=Finance.money(amount.getText().toString());store.contribute(num(v,"id"),mode.getSelectedItemPosition()==0?a:-a);},null);}
     void savingsHistory() {
-        click(R.id.history_back,()->{page="";render();});
+        click(R.id.history_back,this::navigateBack);
         LinearLayout entries=list(R.id.history_list);
         List<ContentValues> history=store.rows("savings_history","id DESC");
         Map<Long,String> goals=new HashMap<>();
@@ -638,7 +640,7 @@ public class MainActivity extends Activity {
     }
 
     void account() {
-        click(R.id.open_summary,this::openSummary);
+        click(R.id.open_savings,()->open("savings"));
         click(R.id.open_reports,()->open("reports"));
         click(R.id.manage_categories, () -> {categoryIncome=false;open("categories");});
         click(R.id.manage_income_categories, () -> {categoryIncome=true;open("categories");});

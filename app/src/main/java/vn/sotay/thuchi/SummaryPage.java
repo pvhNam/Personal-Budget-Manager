@@ -17,10 +17,11 @@ final class SummaryPage {
     private static final int WHITE=0xfff2f5ff,MUTED=0xff95a6c2,GREEN=0xff68dac4,PINK=0xffff92a9;
     private static String share(SummaryData.Category category,SummaryData data){return String.format(Locale.forLanguageTag("vi-VN"),"%.2f%%",category.share(data.total));}
     static void bind(MainActivity a) {
+        a.label(R.id.home_name,a.displayName());
+        a.avatarController.bind(a.body.findViewById(R.id.home_avatar),a.displayName());
         YearMonth month=a.summaryMonth;boolean income=a.summaryIncome;
         SummaryData data=SummaryData.from(a.store.rows("tx","day DESC,id DESC"),month,income);
         a.label(R.id.summary_period,"Tháng "+month.getMonthValue()+" / "+month.getYear()+"  ⌄");
-        a.click(R.id.summary_back,()->{a.page="";a.render();});
         a.click(R.id.summary_previous,()->{a.summaryMonth=month.minusMonths(1);a.render();});
         a.click(R.id.summary_next,()->{a.summaryMonth=month.plusMonths(1);a.render();});
         a.click(R.id.summary_period,()->chooseMonth(a));

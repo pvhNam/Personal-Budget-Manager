@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" style="@style/Screen" tools:context=".MainActivity">
+    <Button style="@style/SecondaryButton" android:id="@+id/savings_back" android:text="@string/savings_back" android:layout_width="wrap_content" />
     <TextView style="@style/Title" android:text="@string/ui_57" />
     <TextView style="@style/Subtitle" android:text="@string/ui_58" />
     <LinearLayout style="@style/Card">

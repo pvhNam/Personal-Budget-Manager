@@ -20,9 +20,9 @@ final class FrostedDrawable extends Drawable {
         int save=canvas.save();canvas.clipPath(clip);
         GlassBackdrop backdrop=host.getRootView().findViewById(R.id.glass_backdrop);
         if(backdrop!=null&&backdrop.getVisibility()==View.VISIBLE)backdrop.drawBehind(canvas,host,face);
-        paint.setColor(primary?0xc8246f7c:0x60ffffff);paint.setStyle(Paint.Style.FILL);
+        paint.setColor(primary?0xc8306b75:0x99232e46);paint.setStyle(Paint.Style.FILL);
         canvas.drawRoundRect(face,radius,radius,paint);
-        paint.setColor(primary?0x55ffffff:0xdfffffff);paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(primary?0x668ce2d2:0x426f85a6);paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(host.getResources().getDisplayMetrics().density);
         canvas.drawRoundRect(face,radius,radius,paint);canvas.restoreToCount(save);paint.setStyle(Paint.Style.FILL);
     }

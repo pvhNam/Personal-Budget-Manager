@@ -12,7 +12,7 @@ public class BarColumn extends View {
     private Shader fill;
     private float reveal=1;
     private android.animation.ValueAnimator animation;
-    public BarColumn(Context context) { this(context,0,1,0xff247c83); }
+    public BarColumn(Context context) { this(context,0,1,0xff8ce2d2); }
     public BarColumn(Context context, long amount, long maximum, int color) {
         super(context); this.amount=amount; this.maximum=Math.max(1,maximum); this.color=color;
         setFocusable(true); setClickable(true);
@@ -33,7 +33,7 @@ public class BarColumn extends View {
         super.onDraw(canvas);
         float density=getResources().getDisplayMetrics().density;
         float bottom=getHeight()-8*density, top=12*density;
-        paint.setShader(null);paint.setColor(0x18395769);paint.setStrokeWidth(density);
+        paint.setShader(null);paint.setColor(0x33788eae);paint.setStrokeWidth(density);
         for(int i=0;i<=4;i++) {float y=top+(bottom-top)*i/4;canvas.drawLine(0,y,getWidth(),y,paint);}
         float height=amount==0?2*density:Math.max(4*density,(bottom-top)*amount/maximum);
         float left=getWidth()/2f-10*density,right=getWidth()/2f+10*density;

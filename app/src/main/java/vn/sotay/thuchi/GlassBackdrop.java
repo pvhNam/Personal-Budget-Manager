@@ -18,9 +18,9 @@ public class GlassBackdrop extends View {
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
     }
     @Override protected void onSizeChanged(int w,int h,int oldw,int oldh) {
-        glows[0]=glow(w*.9f,h*.12f,w*.85f,0xffb5dedb);
-        glows[1]=glow(w*.08f,h*.5f,w*.95f,0xffd8cdf0);
-        glows[2]=glow(w*.95f,h*.88f,w*.9f,0xffc3e5df);
+        glows[0]=glow(w*.9f,h*.12f,w*.85f,0xff1a2d3e);
+        glows[1]=glow(w*.08f,h*.5f,w*.95f,0xff222440);
+        glows[2]=glow(w*.95f,h*.88f,w*.9f,0xff172c3a);
         if(frosted!=null)frosted.recycle();
         frosted=Bitmap.createBitmap(Math.max(1,w/6),Math.max(1,h/6),Bitmap.Config.ARGB_8888);
         Canvas sample=new Canvas(frosted);sample.scale(frosted.getWidth()/(float)Math.max(1,w),frosted.getHeight()/(float)Math.max(1,h));
@@ -32,7 +32,7 @@ public class GlassBackdrop extends View {
         fullBounds.set(0,0,getWidth(),getHeight());canvas.drawBitmap(frosted,null,fullBounds,paint);
     }
     private void drawColors(Canvas canvas) {
-        canvas.drawColor(0xffedf4f7);
+        canvas.drawColor(0xff11182d);
         for(Shader shader:glows) {paint.setShader(shader);canvas.drawRect(0,0,getWidth(),getHeight(),paint);}
     }
     void drawBehind(Canvas canvas,View host,RectF bounds) {

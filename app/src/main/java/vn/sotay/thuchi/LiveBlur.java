@@ -68,7 +68,7 @@ final class LiveBlur implements View.OnAttachStateChangeListener {
             current=new int[sw*sh];previous=new int[sw*sh];hasFrame=false;
         }
         if(width!=w||height!=h){width=w;height=h;hasFrame=false;}
-        Canvas capture=new Canvas(sample);capture.drawColor(0xffedf4f7);
+        Canvas capture=new Canvas(sample);capture.drawColor(0xff11182d);
         capture.scale(sw/(w+2*padding),sh/(h+2*padding));
         source.getLocationOnScreen(origin);target.getLocationOnScreen(position);
         capture.translate(padding+origin[0]-position[0],padding+origin[1]-position[1]);

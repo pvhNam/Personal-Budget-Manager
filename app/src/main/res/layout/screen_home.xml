@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Screen">
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginBottom="14dp">
         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="12dp">
-            <TextView style="@style/Subtitle" android:text="@string/home_greeting" android:layout_marginBottom="3dp" />
+            <TextView style="@style/Subtitle" android:text="@string/summary_title" android:layout_marginBottom="3dp" />
             <TextView style="@style/Title" android:id="@+id/home_name" android:text="@string/avatar_default_name" android:textSize="25sp" android:maxLines="2" android:ellipsize="end" android:layout_marginBottom="0dp" />
         </LinearLayout>
         <vn.sotay.thuchi.AvatarView android:id="@+id/home_avatar" android:layout_width="56dp" android:layout_height="56dp" />
@@ -12,27 +12,27 @@
         <TextView style="@style/Body" android:text="@string/glass_9" android:id="@+id/period" android:layout_width="0dp" android:layout_weight="1" android:gravity="center" android:textStyle="bold" />
         <Button style="@style/SecondaryButton" android:id="@+id/next" android:text="@string/glass_10" android:layout_width="48dp" android:contentDescription="@string/glass_11" />
     </LinearLayout>
-    <Button style="@style/SecondaryButton" android:id="@+id/open_summary" android:text="@string/summary_open" android:drawableStart="@drawable/ic_summary" android:drawableEnd="@drawable/ic_chevron" android:drawablePadding="8dp"/>
+    <Button style="@style/SecondaryButton" android:id="@+id/open_savings" android:text="@string/savings_open" android:drawableStart="@drawable/ic_savings" android:drawableEnd="@drawable/ic_chevron" android:drawablePadding="8dp"/>
     <LinearLayout style="@style/Card" android:background="@drawable/bg_hero" android:layout_marginTop="10dp" android:padding="16dp">
-        <TextView style="@style/Body" android:text="@string/glass_12" android:textColor="#D9EBEE" android:textSize="11sp" android:letterSpacing="0.1" android:layout_marginBottom="4dp" />
-        <TextView style="@style/Title" android:text="@string/glass_13" android:id="@+id/balance" android:textColor="#FFFFFF" android:textSize="30sp" android:layout_marginBottom="4dp" android:minHeight="48dp" />
-        <TextView style="@style/Body" android:text="@string/glass_14" android:id="@+id/carryover" android:textColor="#E0E8F4" android:textSize="12sp" android:layout_marginBottom="4dp" android:minHeight="36dp" />
+        <TextView style="@style/Body" android:text="@string/glass_12" android:textColor="@color/text_secondary" android:textSize="11sp" android:letterSpacing="0.1" android:layout_marginBottom="4dp" />
+        <TextView style="@style/Title" android:text="@string/glass_13" android:id="@+id/balance" android:textColor="@color/text_primary" android:textSize="30sp" android:layout_marginBottom="4dp" android:minHeight="48dp" />
+        <TextView style="@style/Body" android:text="@string/glass_14" android:id="@+id/carryover" android:textColor="@color/text_secondary" android:textSize="12sp" android:layout_marginBottom="4dp" android:minHeight="36dp" />
     </LinearLayout>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
         <LinearLayout style="@style/Card" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="3dp" android:padding="14dp">
-            <TextView style="@style/Body" android:text="@string/glass_15" android:textColor="#247C83" android:textSize="12sp" />
-            <TextView style="@style/Body" android:text="@string/glass_13" android:id="@+id/income_total" android:textColor="#247C83" android:textSize="17sp" android:textStyle="bold" android:minHeight="32dp" android:layout_marginBottom="0dp" android:fontFamily="sans-serif-medium" />
+            <TextView style="@style/Body" android:text="@string/glass_15" android:textColor="@color/accent" android:textSize="12sp" />
+            <TextView style="@style/Body" android:text="@string/glass_13" android:id="@+id/income_total" android:textColor="@color/accent" android:textSize="17sp" android:textStyle="bold" android:minHeight="32dp" android:layout_marginBottom="0dp" android:fontFamily="sans-serif-medium" />
         </LinearLayout>
         <LinearLayout style="@style/Card" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="3dp" android:padding="14dp">
-            <TextView style="@style/Body" android:text="@string/glass_16" android:textColor="#B25958" android:textSize="12sp" />
-            <TextView style="@style/Body" android:text="@string/glass_13" android:id="@+id/expense_total" android:textColor="#B25958" android:textSize="17sp" android:textStyle="bold" android:minHeight="32dp" android:layout_marginBottom="0dp" android:fontFamily="sans-serif-medium" />
+            <TextView style="@style/Body" android:text="@string/glass_16" android:textColor="@color/expense" android:textSize="12sp" />
+            <TextView style="@style/Body" android:text="@string/glass_13" android:id="@+id/expense_total" android:textColor="@color/expense" android:textSize="17sp" android:textStyle="bold" android:minHeight="32dp" android:layout_marginBottom="0dp" android:fontFamily="sans-serif-medium" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout style="@style/Card" android:padding="16dp">
         <TextView style="@style/Section" android:text="@string/category_chart_title" android:layout_marginTop="0dp" />
-        <TextView style="@style/Body" android:id="@+id/category_month_total" android:text="@string/glass_13" android:textSize="13sp" android:textColor="#586C7D" />
+        <TextView style="@style/Body" android:id="@+id/category_month_total" android:text="@string/glass_13" android:textSize="13sp" android:textColor="@color/text_muted" />
         <LinearLayout android:id="@+id/category_chart" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
-        <TextView style="@style/Body" android:text="@string/category_chart_hint" android:textSize="11sp" android:textColor="#586C7D" android:layout_marginBottom="0dp" />
+        <TextView style="@style/Body" android:text="@string/category_chart_hint" android:textSize="11sp" android:textColor="@color/text_muted" android:layout_marginBottom="0dp" />
     </LinearLayout>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
         <Button style="@style/PrimaryButton" android:id="@+id/add_expense" android:text="@string/quick_expense" android:layout_width="0dp" android:layout_weight="1" android:layout_marginEnd="5dp" />

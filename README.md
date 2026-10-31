@@ -1,4 +1,12 @@
-# Sổ tay thu chi — bản cơ bản 1.8
+# Sổ tay thu chi — bản cơ bản 1.10
+
+Menu hiện tại: **Trang chủ – Giao dịch – ＋ – Summary – Tài khoản**. Trang chủ hiển thị biểu đồ tròn theo danh mục, bộ chọn tháng/loại Thu–Chi, tên và avatar. Summary hiển thị số dư lũy kế, thu/chi tháng, biểu đồ cột và các thao tác trước đây ở Trang chủ. Hai tab giữ riêng tháng đang xem khi đổi tab.
+
+Mở **Tiết kiệm · Mục tiêu của bạn** từ Summary hoặc Tài khoản. Lịch sử tiết kiệm quay lại đúng trang Tiết kiệm, rồi về trang đã mở nó. Biểu đồ tròn dùng cùng bán kính theo hai chiều, nét tròn đều, đầu đoạn màu bo tròn và khoảng cách nhỏ; vẫn chọn được danh mục và xem số tiền/tỷ lệ chính xác.
+
+Toàn ứng dụng dùng nền navy tối như Summary: thẻ bo góc, menu kính blur, nút, form thêm/sửa, trang tài khoản và các bảng chi tiết. Chữ sáng; thu nhập xanh mint, chi tiêu hồng. Hộp chọn ngày và danh mục cũng theo giao diện tối. Dữ liệu thu/chi, mục tiêu, tên và avatar được giữ nguyên khi cài cập nhật.
+
+Kiểm chứng bản 1.10: build APK và lint thành công (còn cảnh báo); 3 kiểm thử JVM và 40 kiểm thử Android đều qua trên máy giả lập API 36.1. Có kiểm thử pixel xác nhận vòng tròn cân bằng hai chiều và ở giữa khung hình, kiểm thử chọn đoạn/danh mục, giữ tháng/loại khi đổi tab, điều hướng Tiết kiệm và hồ sơ/avatar. Chưa chạy trên điện thoại thật.
 
 Quản lý danh mục tại **Tài khoản → Danh mục chi tiêu / Danh mục thu nhập**: thêm tên mới (tối đa 40 ký tự), đổi tên, xóa. Đổi tên cập nhật cả giao dịch và lịch định kỳ. Xóa danh mục đang dùng yêu cầu chọn danh mục thay thế; không xóa giao dịch hoặc thay đổi số tiền. Không cho tên trùng (không phân biệt chữ hoa/thường), tên rỗng hoặc xóa danh mục cuối cùng. Hai loại có danh sách riêng; có thể dùng cùng một tên ở cả hai loại. Thu nhập có sẵn Lương, Thưởng, Kinh doanh, Đầu tư, Quà tặng và Thu nhập khác. Các khoản thu cũ thuộc nhóm “Thu nhập” được giữ nguyên.
 
@@ -13,7 +21,8 @@ Mở đúng thư mục `E:\AndroidStudioProjects\QuanLyThuChi`, chờ Gradle Syn
 | Tệp XML | Màn hình |
 | --- | --- |
 | `activity_main.xml` | Khung ứng dụng, thanh điều hướng và Trang chủ |
-| `screen_home.xml` | Trang chủ: thu chi, danh mục, ngân sách, sổ giao dịch |
+| `screen_summary.xml` | Trang chủ: biểu đồ tròn, tổng tháng và danh mục thu/chi |
+| `screen_home.xml` | Tab Summary: số dư, thu chi, biểu đồ cột, ngân sách và lối vào Tiết kiệm |
 | `screen_transactions.xml` | Tab Giao dịch: tất cả giao dịch, tìm kiếm và lọc tháng/danh mục |
 | `screen_reports.xml` | Báo cáo trong Tài khoản: năm, 12 tháng, biểu đồ cột Thu/Chi có thể chạm và so sánh |
 | `screen_savings_history.xml` | Lịch sử góp/rút tiền tiết kiệm |

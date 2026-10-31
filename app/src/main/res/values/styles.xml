@@ -1,7 +1,17 @@
 <resources>
-    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
-        <item name="android:fontFamily">sans-serif</item><item name="android:colorAccent">#247C83</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowActionModeOverlay">true</item><item name="android:windowBackground">#EDF4F7</item>
+    <style name="AppTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:colorBackground">@color/scene_top</item>
+        <item name="android:colorButtonNormal">@color/surface</item>
+        <item name="android:colorControlNormal">@color/text_secondary</item>
+        <item name="android:colorControlActivated">@color/accent</item>
+        <item name="android:colorControlHighlight">@color/control_highlight</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_muted</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">@drawable/bg_summary_scene</item>
     </style>
 </resources>

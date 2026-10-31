@@ -22,8 +22,8 @@ final class DialogBlurDrawable extends Drawable {
     @Override public void draw(Canvas canvas) {
         int saved=canvas.save();canvas.clipPath(clip);
         blur.draw(canvas,face);
-        paint.setStyle(Paint.Style.FILL);paint.setColor(0x9effffff);canvas.drawRoundRect(face,radius,radius,paint);
-        paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(stroke);paint.setColor(0xe6ffffff);
+        paint.setStyle(Paint.Style.FILL);paint.setColor(0xb8182239);canvas.drawRoundRect(face,radius,radius,paint);
+        paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(stroke);paint.setColor(0x426f85a6);
         canvas.drawRoundRect(face,radius,radius,paint);canvas.restoreToCount(saved);
     }
     @Override public void getOutline(Outline outline){outline.setRoundRect(getBounds(),radius);}

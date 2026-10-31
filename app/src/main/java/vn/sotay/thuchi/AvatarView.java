@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
@@ -43,7 +42,7 @@ public final class AvatarView extends View {
         float radius = Math.min(getWidth(), getHeight()) / 2f - getResources().getDisplayMetrics().density;
         paint.setShader(null);
         paint.setStyle(Paint.Style.FILL);
-        paint.setColor(0xff247c83);
+        paint.setColor(0xff284f62);
         if (avatar != null && !avatar.isRecycled()) {
             BitmapShader shader = new BitmapShader(avatar, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
             float scale = radius * 2 / Math.min(avatar.getWidth(), avatar.getHeight());
@@ -56,19 +55,19 @@ public final class AvatarView extends View {
         canvas.drawCircle(cx, cy, radius, paint);
         paint.setShader(null);
         if (avatar == null) {
-            paint.setColor(Color.WHITE);
+            paint.setColor(0xffb6f5e8);
             paint.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
             paint.setTextAlign(Paint.Align.CENTER);
             paint.setTextSize(radius * .85f);
             canvas.drawText(initial, cx, cy - (paint.ascent() + paint.descent()) / 2, paint);
         }
         if (isPressed() || isFocused()) {
-            paint.setColor(0x33000000);
+            paint.setColor(0x228ce2d2);
             canvas.drawCircle(cx, cy, radius, paint);
         }
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(getResources().getDisplayMetrics().density * 2);
-        paint.setColor(0xccffffff);
+        paint.setColor(0x998ce2d2);
         canvas.drawCircle(cx, cy, radius, paint);
     }
 

@@ -6,7 +6,7 @@
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center_horizontal">
                 <vn.sotay.thuchi.AvatarView android:id="@+id/profile_avatar" android:layout_width="68dp" android:layout_height="68dp" />
-                <TextView android:id="@+id/change_avatar" android:layout_width="wrap_content" android:layout_height="48dp" android:paddingHorizontal="8dp" android:gravity="center" android:text="@string/avatar_change" android:textSize="12sp" android:textStyle="bold" android:textColor="#247C83" android:clickable="true" android:focusable="true" />
+                <TextView android:id="@+id/change_avatar" android:layout_width="wrap_content" android:layout_height="48dp" android:paddingHorizontal="8dp" android:gravity="center" android:text="@string/avatar_change" android:textSize="12sp" android:textStyle="bold" android:textColor="@color/accent" android:clickable="true" android:focusable="true" />
             </LinearLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical">
                 <TextView style="@style/Section" android:id="@+id/profile_name" android:layout_marginTop="0dp" android:layout_marginBottom="4dp" android:maxLines="2" android:ellipsize="end" android:text="@string/ui_60"/>
@@ -17,7 +17,7 @@
     </LinearLayout>
     <LinearLayout style="@style/Card">
         <TextView style="@style/Section" android:layout_marginTop="0dp" android:text="@string/account_budget"/>
-        <TextView style="@style/Title" android:id="@+id/profile_budget" android:textSize="23sp" android:textColor="#247C83" android:clickable="true" android:focusable="true" android:minHeight="48dp" android:gravity="center_vertical"/>
+        <TextView style="@style/Title" android:id="@+id/profile_budget" android:textSize="23sp" android:textColor="@color/accent" android:clickable="true" android:focusable="true" android:minHeight="48dp" android:gravity="center_vertical"/>
         <TextView style="@style/Subtitle" android:id="@+id/budget_note" android:layout_marginBottom="0dp"/>
     </LinearLayout>
     <TextView style="@style/Section" android:text="@string/account_management" android:layout_marginTop="0dp" android:layout_marginBottom="12dp"/>
@@ -27,12 +27,12 @@
         <TextView style="@style/Subtitle" android:id="@+id/income_category_count" android:layout_marginTop="8dp" android:layout_marginBottom="0dp"/>
         <Button style="@style/SecondaryButton" android:id="@+id/manage_income_categories" android:text="@string/account_incomes" android:gravity="start|center_vertical" android:drawableEnd="@drawable/ic_chevron" android:drawableStart="@drawable/ic_income" android:drawablePadding="12dp"/>
         <Button style="@style/SecondaryButton" android:id="@+id/account_recurring" android:text="@string/account_recurring" android:gravity="start|center_vertical" android:drawableEnd="@drawable/ic_chevron"/>
-        <Button style="@style/SecondaryButton" android:id="@+id/open_summary" android:text="@string/summary_open" android:gravity="start|center_vertical" android:drawableEnd="@drawable/ic_chevron"/>
+        <Button style="@style/SecondaryButton" android:id="@+id/open_savings" android:text="@string/savings_open" android:gravity="start|center_vertical" android:drawableEnd="@drawable/ic_chevron"/>
         <Button style="@style/SecondaryButton" android:id="@+id/open_reports" android:text="@string/open_reports" android:gravity="start|center_vertical" android:drawableEnd="@drawable/ic_chevron"/>
     </LinearLayout>
     <LinearLayout style="@style/Card">
         <TextView style="@style/Section" android:layout_marginTop="0dp" android:text="@string/account_records"/>
-        <TextView style="@style/Body" android:id="@+id/data_count" android:textColor="#247C83" android:clickable="true" android:focusable="true" android:minHeight="48dp" android:gravity="center_vertical"/>
+        <TextView style="@style/Body" android:id="@+id/data_count" android:textColor="@color/accent" android:clickable="true" android:focusable="true" android:minHeight="48dp" android:gravity="center_vertical"/>
         <TextView style="@style/Subtitle" android:layout_marginBottom="0dp" android:text="@string/account_local"/>
     </LinearLayout>
 </LinearLayout>
